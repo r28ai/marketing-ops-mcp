@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "marketing-ops-mcp"
+version = "0.1.0"
+description = "Shipped work becomes blog drafts; competitor pricing, mentions and webinars run on schedule."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "R28 AI, Inc.", email = "oss@r28.ai" }]
+keywords = ["mcp", "mcp-server", "ai-agents", "charter", "linear", "github", "google-docs", "slack", "firecrawl", "google-sheets", "tavily", "google-forms", "google-calendar", "gmail", "stripe", "granola", "notion"]
+dependencies = ["charter-packs-mcp @ https://github.com/r28ai/charter-packs-mcp/releases/download/v0.1.0/charter_packs_mcp-0.1.0-py3-none-any.whl"]
+
+[project.urls]
+Repository = "https://github.com/r28ai/marketing-ops-mcp"
+Charter = "https://github.com/r28ai/charter"
+Documentation = "https://docs.r28.ai/charter"
+
+[project.scripts]
+marketing-ops-mcp = "marketing_ops_mcp:main"
+
+[tool.hatch.metadata]
+# charter-packs-mcp is a dependency by its GitHub release's wheel, not a PyPI name.
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/marketing_ops_mcp"]
